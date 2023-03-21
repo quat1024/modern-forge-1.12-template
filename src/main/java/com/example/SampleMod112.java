@@ -4,7 +4,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.objectweb.asm.ClassReader;
 
 @Mod(
 	modid = SampleMod112.MODID,
@@ -21,10 +20,5 @@ public class SampleMod112 {
 	@Mod.EventHandler
 	public void preinit(FMLPreInitializationEvent preinit) {
 		LOGGER.info("Hello, world!");
-		
-		LOGGER.info(ClassReader.class.getName());
-		LOGGER.info(ClassReader.class.getClassLoader());
-		LOGGER.info(ClassReader.class.getProtectionDomain());
-		LOGGER.info(ClassReader.class.getProtectionDomain().getCodeSource());
 	}
 }
