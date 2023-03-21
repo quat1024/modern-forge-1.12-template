@@ -1,0 +1,21 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+# eclipse and vscode
+*.launch
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+# intellij
+.idea/
+*.iml
+*.ipr
+*.iws
+# apple: think different:tm:
+*.DS_Store
+# run configurations
+run/
