@@ -12,13 +12,21 @@ buildscript {
 apply plugin: "java"
 apply plugin: "net.minecraftforge.gradle"
 
-java {
-	toolchain {
-		//Ensure a java 8 compiler is used to compile the mod, and to launch the game.
-		languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+compileJava {
+	sourceCompatibility = "8"
+	targetCompatibility = "8"
+}
+
+repositories {
+	maven {
+		url = "https://maven.minecraftforge.net/"
 	}
 }
-compileJava { sourceCompatibility = targetCompatibility = "8" }
+
+dependencies {
+	minecraft "net.minecraftforge:forge:1.12.2-14.23.5.2860"
+}
 
 minecraft {
 	mappings channel: "stable", version: "39-1.12"
@@ -36,14 +44,6 @@ minecraft {
 	}
 }
 
-repositories {
-	maven { url = "https://maven.minecraftforge.net/" }
-}
-
-dependencies {
-	minecraft "net.minecraftforge:forge:1.12.2-14.23.5.2860"
-}
-
 processResources {
 	inputs.property "version", project.version
 	
@@ -52,7 +52,6 @@ processResources {
 	}
 }
 
-//By default, Gradle compiles Java classes to ./build/classes/main/java, and processes resources to ./build/resources/main.
-//Forge 1.12 searches for mod classes, then looks for resources *in the same directory*, so two separate directories won't do.
-//Let's ensure resources and classes end up in the same directory.
+//When Forge 1.12 loads mods from a directory that's been put the classpath, it expects to find resources in the same directory.
+//Default Gradle behavior puts resources in ./build/resources/main instead of ./build/classes/main/java.
 sourceSets.all { it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next() }
