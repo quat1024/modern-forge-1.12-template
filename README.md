@@ -7,7 +7,7 @@ It's kinda annoying to set up forge 1.12 workspaces in the year of our lord 2023
 ## Usage
 
 1. Clone this repo, delete the `.git` folder to disassociate your clone from this repo, then run `git init`.
-2. Pop a terminal, then "poke ForgeGradle": run `./gradlew build` or whatever. ForgeGradle will whirr to life and set up the dev environment for you.
+2. "Poke ForgeGradle": run `./gradlew build` or whatever. ForgeGradle will whirr to life and set up the dev environment for you.
    * Give it time, it takes like six minutes on my PC from an empty ForgeGradle cache. No, it's not stuck.
 3. Open this project in IntelliJ or your code editor of choice.
 4. (optional) Generate "run configurations" by running the appropriate Gradle task, depending on your IDE:
